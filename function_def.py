@@ -83,7 +83,24 @@ def checkWin(letter,win_status):
    else:
       pass
 
-
+#This function will prompt the user to choose if they want to play against a computer or another player
+def pickOpponent():
+   opponent = int(input("Do you want to play with (1) computer or (2) player? (select 1 or 2) ")
+   while opponent > 2 or opponent < 1:
+      print("Have to select (1) computer or (2) player. Please try again.")
+      opponent=input("Do you want to play with (1) computer or (2) player? (select 1 or 2) ")
+   return opponent
+  
+#This function is the same as getInput but for the "computer"
+#importing random dict to randomize numbers
+def computer(letter,board):
+   print("Computer Turn:")
+   place = random.randint(1,9) - 1
+   while ("X" in board[place] or "O" in board[place]):
+      place = random.randint(1,9) - 1
+   board.pop(place)
+   board.insert(place,letter)
+   return board, letter
 
 
 
